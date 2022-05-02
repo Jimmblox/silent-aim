@@ -35,8 +35,8 @@ local FindFirstChild = Instancenew("Part").FindFirstChild
 
 -- // Silent Aim Vars
 getgenv().ValiantAimHacks = {
-	SilentAimEnabled = true,
-	ShowFOV = true,
+	SilentAimEnabled = false,
+	ShowFOV = false,
 	FOVSides = 14,
 	VisibleCheck = true,
 	TeamCheck = true,
@@ -53,7 +53,7 @@ getgenv().ValiantAimHacks = {
 	},
 	BlacklistedPlayers = {LocalPlayer, "sipuli334", "cool4guy5", "henryharrington2"},
 	WhitelistedPUIDs = {91318356},
-	FOVColor = Color3fromRGB(231, 84, 128)
+	FOVColor = Color3.new(0, 1, 0)
 }
 local ValiantAimHacks = getgenv().ValiantAimHacks
 
@@ -61,7 +61,7 @@ local ValiantAimHacks = getgenv().ValiantAimHacks
 local circle = Drawingnew("Circle")
 circle.Transparency = 1
 circle.Thickness = 2
-circle.Color = ValiantAimHacks.FOVColor
+circle.Color = Color3.new(ValiantAimHacks.FOVColor)
 circle.Filled = false
 function ValiantAimHacks.updateCircle()
 	if (circle) then
@@ -70,6 +70,7 @@ function ValiantAimHacks.updateCircle()
 		circle.Radius = (ValiantAimHacks.FOV * 3)
 		circle.Position = Vector2new(Mouse.X, Mouse.Y + GetGuiInset(GuiService).Y)
 		circle.NumSides = ValiantAimHacks.FOVSides
+		circle.Color = Color3.new(ValiantAimHacks.FOVColor)
 
 		-- // Return circle
 		return circle
